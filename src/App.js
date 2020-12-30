@@ -23,8 +23,8 @@ function App() {
         dispatch(login({
           email:userAuth.email,
           uid:userAuth.uid,
-          displayName:userAuth.displayName,
-          photoURL:userAuth.photoURL
+        displayName:userAuth.displayName,
+        photoURL:userAuth.photoURL
         }))
 
       }else{

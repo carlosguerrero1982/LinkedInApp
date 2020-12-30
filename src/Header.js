@@ -7,10 +7,27 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import ChatIcon from '@material-ui/icons/Chat';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import foto from './foto.jpg';
 
+import { useDispatch } from 'react-redux';
+import { auth } from './firebase';
+import {logout} from './features/userSlice';
+import {useSelector} from "react-redux";
+import { selectUser } from './features/userSlice';
 
 function Header() {
+
+  const user = useSelector(selectUser);
+
+  const dispatch = useDispatch();
+
+
+  const logoutApp = () =>{
+
+    dispatch(logout())
+    auth.signOut();
+
+  }
+
     return (
         <div className="header">
            
@@ -39,7 +56,7 @@ function Header() {
             <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
             <HeaderOption Icon={ChatIcon} title="Messaging" />
             <HeaderOption Icon={NotificationsIcon} title="Notifications" />
-            <HeaderOption avatar={foto} title="me" />
+            <HeaderOption avatar={true} onClick={logoutApp} title="me" />
             
             </div>
         </div> 

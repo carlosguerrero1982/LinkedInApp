@@ -33,12 +33,12 @@ function Login() {
             .then(()=>{
                 dispatch(
                     login({
-
+                    
                     email:userAuth.user.email,
                     uid:userAuth.user.uid,
                     displayName:name,
                     photoURL:profilepic
-                })
+                    })
                 
             );
 
@@ -51,7 +51,17 @@ function Login() {
     const loginApp = (e)=> {
 
         e.preventDefault()
-        
+        auth.signInWithEmailAndPassword(email,password)  
+        .then((userAuth)=>{
+
+            dispatch(login({
+                email:userAuth.user.email,
+                uid:userAuth.user.uid,
+                displayName:userAuth.user.displayName,
+                profileURL:userAuth.user.photoURL
+              
+            }))
+        }).catch(error=>alert(error));
     }
 
     return (
