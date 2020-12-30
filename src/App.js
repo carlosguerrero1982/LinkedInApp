@@ -8,6 +8,7 @@ import {useSelector} from "react-redux";
 import Login from './Login';
 import { auth } from './firebase';
 import { useDispatch } from 'react-redux';
+import Widgets from './Widgets';
 
 function App() {
 
@@ -48,6 +49,8 @@ function App() {
          <Sidebar />
  
          <Feed />
+
+         <Widgets />
           
        </div>
       ) 

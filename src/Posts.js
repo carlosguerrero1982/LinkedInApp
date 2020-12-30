@@ -12,7 +12,9 @@ function Posts({name,description,message,photoUrl}) {
         <div className="posts">
             <div className="post_header">
 
-                <Avatar />
+                <Avatar src={photoUrl}>
+                {name[0]}
+                </Avatar> 
 
                 <div className="posts_info">
 
